@@ -1,0 +1,96 @@
+:root {
+    --coffee-dark: #3A2718;
+    --coffee-medium: #6F4E37;
+    --coffee-light: #B87333;
+    --coffee-cream: #FFFDD0;
+}
+.bg-coffee-dark { background-color: var(--coffee-dark) !important; }
+.bg-coffee-medium { background-color: var(--coffee-medium) !important; }
+.bg-coffee-light { background-color: var(--coffee-light) !important; }
+.bg-coffee-cream { background-color: var(--coffee-cream) !important; }
+.text-coffee-dark { color: var(--coffee-dark) !important; }
+.text-coffee-cream { color: var(--coffee-cream) !important; }
+
+/* Button overrides */
+.btn-primary {
+    background-color: var(--coffee-medium) !important;
+    border-color: var(--coffee-dark) !important;
+    color: var(--coffee-cream) !important;
+}
+.btn-primary:hover {
+    background-color: #5D3F2E !important;
+}
+
+.btn-success {
+    background-color: #5E8C61 !important; /* Forest green that complements coffee tones */
+    border-color: #3A5A40 !important;
+    color: var(--coffee-cream) !important;
+}
+.btn-success:hover {
+    background-color: #4C7050 !important;
+}
+
+.btn-danger {
+    background-color: #9E2A2B !important; /* Rich burgundy, complements coffee */
+    border-color: #6A1B1C !important;
+    color: var(--coffee-cream) !important;
+}
+.btn-danger:hover {
+    background-color: #801F20 !important;
+}
+
+.btn-warning {
+    background-color: #D4A373 !important; /* Caramel tone */
+    border-color: #B88D5E !important;
+    color: var(--coffee-dark) !important;
+}
+.btn-warning:hover {
+    background-color: #C69B6D !important;
+}
+
+/* Table styling */
+.table {
+    border-color: var(--coffee-medium) !important;
+    color: var(--coffee-dark) !important;
+}
+
+.table thead th {
+    background-color: var(--coffee-medium) !important;
+    color: var(--coffee-cream) !important;
+    border-bottom: 2px solid var(--coffee-dark) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(184, 115, 51, 0.2) !important; /* Light coffee with opacity */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 253, 208, 0.4) !important; /* Very light coffee cream */
+}
+
+/* Form controls */
+.form-control:focus {
+    border-color: var(--coffee-medium) !important;
+    box-shadow: 0 0 0 0.25rem rgba(111, 78, 55, 0.25) !important;
+}
+
+.form-check-input:checked {
+    background-color: var(--coffee-medium) !important;
+    border-color: var(--coffee-dark) !important;
+}
+
+/* List groups for orders */
+.list-group-item {
+    background-color: rgba(255, 253, 208, 0.7) !important;
+    border-color: var(--coffee-light) !important;
+}
+
+/* Card styling if you use them */
+.card {
+    border-color: var(--coffee-medium) !important;
+}
+
+.card-header {
+    background-color: var(--coffee-medium) !important;
+    color: var(--coffee-cream) !important;
+}
