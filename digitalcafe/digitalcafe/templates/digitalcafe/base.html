@@ -11,8 +11,24 @@
     <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>  
 </head>
 <body>
-    <div class="navbar navbar-dark bg-primary">
-    <h1 class="text-center" style = "width: 100%;">POS</h1>
+    <div class="navbar navbar-dark bg-primary d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row w-100 align-items-center">
+                <h1 class="col text-center">DigitalCafe</h1>
+                <div class="col-auto">
+                    {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-light me-3">
+                            Logout
+                        </button>
+                    </form>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-light me-3">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
     <div class="main m-2 p-4">
         <div class="mx-auto w-75 bg-secondary p-2 rounded" style="--bs-bg-opacity: .3;">

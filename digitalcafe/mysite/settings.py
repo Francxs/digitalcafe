@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-^=6-_k)oh!n9-fpcd1qd0rf(!8y2!!8cc*so1if(!*ydv@*_dc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 
+'8000-idx-digitalcafe-1745394238315.cluster-fkltigo73ncaixtmokrzxhwsfc.cloudworkstations.dev',
+'9000-idx-digitalcafe-1745394238315.cluster-fkltigo73ncaixtmokrzxhwsfc.cloudworkstations.dev']
+CSRF_TRUSTED_ORIGINS = ["https://127.0.0.1", "https://localhost", 
+"https://8000-idx-digitalcafe-1745394238315.cluster-fkltigo73ncaixtmokrzxhwsfc.cloudworkstations.dev",
+"https://9000-idx-digitalcafe-1745394238315.cluster-fkltigo73ncaixtmokrzxhwsfc.cloudworkstations.dev"]
 
 
 # Application definition
@@ -124,3 +129,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
