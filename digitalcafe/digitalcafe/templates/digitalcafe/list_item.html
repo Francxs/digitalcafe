@@ -1,0 +1,40 @@
+{% extends 'digitalcafe/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+    <div class="content-head m-4 d-flex justify-content-between">
+        <h1>All Items</h1>
+        <a href="{% url 'openpos'%}" class="btn btn-success btn-lg">Order</a>
+        <a href="{% url 'to_add'%}" class="btn btn-primary btn-lg">Add Item</a>
+    </div>
+    <div class="data-content m-4">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Item Price</th>
+                <th scope="col">Stock Quantity</th>
+                <th class="text-center" scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in items %}
+              <tr>
+                <td class = "iname">{{i.item_name}}</td>
+                <td class = "iprice">PHP {{i.item_price}}</td>
+                <td class = "iprice">{{i.stock_quantity}}</td>
+               
+                <td class="text-center">
+                    <a class="btn btn-primary itemupd mx-4" href="{% url 'edit_item' pk=i.pk %}">Update</a>
+                    <a class="btn btn-danger itemdel mx-4" href="{% url 'delete_item' pk=i.pk %}">Delete</a>
+                    <input type="hidden" class="form-control nmeid" value = {{i.pk}}>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

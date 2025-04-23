@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POS</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">  
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>  
+</head>
+<body>
+    <div class="navbar navbar-dark bg-primary">
+    <h1 class="text-center" style = "width: 100%;">POS</h1>
+    </div>
+    <div class="main m-2 p-4">
+        <div class="mx-auto w-75 bg-secondary p-2 rounded" style="--bs-bg-opacity: .3;">
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </div>
+    <div class="footer bg-primary fixed-bottom" style="width: 100%;">
+        <p class='text-center p-2' style="width: 100%;"> POS (c) 2022</p>
+    </div>
+</body>
+</html>

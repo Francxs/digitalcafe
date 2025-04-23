@@ -1,0 +1,30 @@
+{% extends 'digitalcafe/base_copy.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+    <div class="content-head m-4 d-flex justify-content-between">
+        <h1>Add Item</h1>
+        <!-- <a href="{% url 'add_item' %}" class="btn btn-primary btn-lg">Add Item</a> -->
+    </div>
+    <div class="add-item-form m-4">
+        <form method="POST" action="{% url 'add_item' %}"> {% csrf_token %}
+            <label for="item_name" class="form-label">Item Name</label>
+            <input type="text" name="item_name" class="form-control" placeholder='Item Name' required>
+            <br/>
+            <label for="item_price" class="form-label">Item Price</label>
+            <input type="number" name="item_price" class="form-control" placeholder='Item Price' required>
+            <br/>
+            <label for="stock_quantity" class="form-label">Stock Quantity</label>
+            <input type="number" name="stock_quantity" class="form-control" placeholder='Stock Quantity' required>
+            <br/>
+
+            <div class="buttons mt-2">
+                <input type="submit" value="Add Item" class="btn btn-primary">
+                <a href="{% url 'list_item' %}" class="btn btn-warning">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

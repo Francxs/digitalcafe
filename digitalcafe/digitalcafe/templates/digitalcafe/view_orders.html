@@ -1,0 +1,73 @@
+{% extends 'digitalcafe/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="content">
+    <div class="content-head m-4 d-flex justify-content-between">
+        <h1>All Orders</h1>
+        <a href="{% url 'openpos'%}" class="btn btn-primary btn-lg">Add Order</a>
+    </div>
+    <div class="data-content m-4">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Order Date</th>
+                <th scope="col">Total Amount</th>
+                <th scope="col">Payment Type</th>
+                <!-- <th class="text-center" scope="col">Action</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              {% for o in orders %}
+              <tr class="order-row">
+                <td class = "odate">{{o.order_date}}</td>
+                <td class = "ototal">PHP {{o.total_amount}}</td>
+                {% if o.payment_type == '1' %}
+                <td class = "otype">Cash</td>
+                {% elif o.payment_type == '2' %}
+                <td class = "otype">Credit Card</td>
+                {% endif %}
+              </tr>
+              <tr style="display:none;">
+                <td colspan="3">
+                <table class="table table-striped">
+                  <thead>
+                    <th>Item</th>
+                    <th>Line Total</th>
+
+                    <th>Quantity</th>
+                  </thead>
+                  <tbody>
+                    {% for i in items %}
+                    {% if i.order_id == o %}
+                    <tr>
+                      <td>{{i.item_id.getName}}</td>
+                      <td>{{i.line_total}}</td>
+                      <td>{{i.quantity}}</td>
+
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </td>
+              </tr>
+              {% endfor %}
+
+            </tbody>
+          </table>
+        
+    </div>
+</div>
+
+<script>
+
+  $(document).ready(function(){
+
+    $('.order-row').click(function() {
+      $(this).nextUntil(".order-row").toggle(400);
+    })
+    });
+  </script>
+{% endblock content %}
