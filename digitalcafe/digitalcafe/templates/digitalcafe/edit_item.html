@@ -24,7 +24,7 @@
 
             <div class="buttons mt-2">
                 <input type="submit" value="Edit Item" class="btn btn-primary">
-                <a href="{% url 'delete_item' pk=0 %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'delete_item' pk=i.pk %}" class="btn btn-danger">Delete</a>
                 <a href="{% url 'list_item' %}" class="btn btn-warning">Back</a>
             </div>
         </form>

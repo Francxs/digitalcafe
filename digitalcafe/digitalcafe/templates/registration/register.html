@@ -1,17 +1,17 @@
 {% extends 'digitalcafe/base.html' %}
 
 {% block content %}
-    <div class="container mt-5">
-        <h2 class="text-center">Register</h2>
-        <form method="post" action="{% url 'register' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            {% if form.errors %}
-                <div class="alert alert-danger">
-                    {{ form.errors }}
-                </div>
-            {% endif %}
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
+<main class="container mt-5">
+    <h2 class="text-center">Register</h2>
+    <form method="post" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                {{ form.errors }}
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+</main>
 {% endblock %}
