@@ -116,15 +116,18 @@
                 <h1 class="col text-coffee-cream text-center">DigitalCafe</h1>
                 <div class="col-auto">
                     {% if user.is_authenticated %}
+                <div class="d-flex align-items-center me-3">
+                    <span class="text-coffee-cream me-3">Welcome, {{ user.username }}!</span>
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn bg-coffee-cream text-coffee-dark me-3">
+                        <button type="submit" class="btn bg-coffee-cream text-coffee-dark">
                             Logout
                         </button>
                     </form>
-                    {% else %}
-                    <a href="{% url 'login' %}" class="btn bg-coffee-cream text-coffee-dark me-3">Login</a>
-                    {% endif %}
+                </div>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn bg-coffee-cream text-coffee-dark me-3">Login</a>
+                {% endif %}
                 </div>
             </div>
         </div>
@@ -136,7 +139,7 @@
         </div>
     </main>
     <footer class="footer bg-coffee-dark fixed-bottom" style="width: 100%;">
-        <p class="text-coffee-cream text-center p-2" style="width: 100%;">POS (c) 2022</p>
+        <p class="text-coffee-cream text-center p-2" style="width: 100%;">POS (c) 2025</p>
     </footer>
 </body>
 </html>

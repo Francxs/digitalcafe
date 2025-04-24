@@ -1,0 +1,22 @@
+{% extends 'digitalcafe/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+    <div class="content-head m-4">
+        <h1>Product Details</h1>
+    </div>
+    <div class="data-content m-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.item_name }}</h5>
+                <p class="card-text">Price: PHP {{ product.item_price }}</p>
+                <p class="card-text">Stock: {{ product.stock_quantity }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="content-footer m-4">
+        <a href="{% url 'index' %}" class="btn btn-primary">Back to Products</a>
+    </div>
+</div>
+{% endblock content %}

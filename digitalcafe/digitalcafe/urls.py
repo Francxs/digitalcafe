@@ -18,10 +18,14 @@ Including another URLconf
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LoginView, LogoutView
+from .views import hello_world
 
 
 urlpatterns = [
    path('', views.openpos, name = "openpos"),
+   path("index", views.index, name="index"),
+   path("product/<int:pk>", views.product_detail, name="product_detail"),
+   path('hello', hello_world, name='hello_world'),
    path('list_item', views.list_item, name="list_item"),
    path('view_orders', views.view_orders, name="view_orders"),
    path('to_add', views.to_add, name="to_add"),

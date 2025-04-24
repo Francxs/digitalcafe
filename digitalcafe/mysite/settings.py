@@ -106,7 +106,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# Add these message settings
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+    messages.SUCCESS: 'success',
+    messages.INFO: 'info',
+    messages.WARNING: 'warning',
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 

@@ -8,15 +8,32 @@ from django.contrib import messages
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.decorators import login_required
 
+from django.http import HttpResponse
+from django.template import loader
+
+def hello_world(request):
+    return HttpResponse("<h1>Hello world!</h1>")
+
+def index(request):
+    template = loader.get_template("digitalcafe/index.html")
+    products = item.objects.all()
+    context = {
+        "product_data": products
+    }
+    return HttpResponse(template.render(context, request))
 
 # Create your views here.
 @login_required
-
 def openpos(request):
     items = item.objects.filter(stock_quantity__gt=0)
     return render (request, 'digitalcafe/openpos.html', {'items':items})
 
 #    return render (request, 'digitalcafe/openpos.html')
+
+@login_required
+def product_detail(request, pk):
+    product = get_object_or_404(item, pk=pk)
+    return render(request, 'digitalcafe/product_detail.html', {'product': product})
 
 @login_required
 def list_item(request):
@@ -117,7 +134,15 @@ def register_view(request):
 
 
 class login_view(LoginView):
-    template_name = 'digitalcafe/login.html'
+    template_name = 'registration/login.html'  # Make sure this matches your actual template location
+    
+    def form_valid(self, form):
+        messages.success(self.request, f'Welcome back, {form.get_user().username}!')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.error(self.request, 'Invalid username or password. Please try again.')
+        return super().form_invalid(form)
 
 class logout_view(LogoutView):
     next_page = 'openpos'

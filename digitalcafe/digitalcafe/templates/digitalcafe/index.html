@@ -1,0 +1,37 @@
+{% extends 'digitalcafe/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content">
+    <div class="content-head m-4">
+        <h1>Products</h1>
+    </div>
+    <div class="data-content m-4">
+        {% if product_data %}
+            <table class="table table-hover">
+                <thead class="bg-coffee-medium text-coffee-cream">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product_record in product_data %}
+                        <tr>
+                            <td><a href="{% url 'product_detail' product_record.pk %}">{{ product_record.item_name }}</a></td>
+                            <td>PHP {{ product_record.item_price }}</td>
+                            <td>{{ product_record.stock_quantity }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No products available.</p>
+        {% endif %}
+    </div>
+    <div class="content-footer m-4">
+        <a href="{% url 'openpos' %}" class="btn btn-primary">Back to POS</a>
+    </div>
+</div>
+{% endblock content %}
